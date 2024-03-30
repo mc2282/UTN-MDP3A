@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row m-5">
+        <div class="col-md-6 col-12">
+          <form id="person" class="m-5">
+            <div
+              class="alert alert-dancer"
+              role="alert"
+              id="showAlertError"
+            ></div>
+
+            <h4>Registro de objetos de personas</h4>
+            <div class="mb-3">
+              <label for="dni" class="form-label">DNI</label>
+              <input
+                type="number"
+                class="form-control"
+                id="dni"
+                placeholder="Ingrese sólo números"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="firstName">Nombre</label>
+              <input class="form-control" id="firstName" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="lastName">Apellido</label>
+
+              <input class="form-control" id="lastName" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="age">Edad</label>
+              <input class="form-control" id="age" type="date" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="address">Dirección</label>
+              <input class="form-control" id="address" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="status">Estatus</label>
+              <select id="status">
+                <option value="0">Inactivo</option>
+                <option value="1">En Proceso</option>
+                <option value="2">Concluido</option>
+                <option value="3">Activo</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              id="btnAgregar"
+              class="btn btn-dark"
+              onclick="addFormPerson()"
+            >
+              Agregar
+            </button>
+
+            <button
+              type="button"
+              id="btnEditPerson"
+              class="btn btn-danger d-none"
+              onclick="editFormPerson()"
+            >
+              Editar Datos
+            </button>
+
+            <button
+              type="button"
+              id="btnCancelEdit"
+              class="btn btn-warning d-none"
+              onclick="cancelEdit()"
+            >
+              Cancelar
+            </button>
+          </form>
+        </div>
+
+        <div class="col-md-6 col-12">
+          <div class="pt-2 mb-1 mt-5">
+            <input
+              placeholder="BUSCAR"
+              id="search"
+              class="form-control"
+              onkeyup="filterPerson()"
+            />
+          </div>
+
+          <table class="table table-striped table-bordered">
+            <thead>
+              <th>DNI</th>
+              <th>NOMBRES Y APELLIDOS</th>
+              <th>EDAD</th>
+              <th>DIRECCIÓN</th>
+              <th>ESTATUS</th>
+              <th>OPCIONES</th>
+            </thead>
+
+            <tbody id="listPerson">
+              <tr>
+                <td colspan="6" class="text-center">No hay registros.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
